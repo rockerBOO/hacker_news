@@ -35,7 +35,7 @@ defmodule HackerNews do
       %{"title" => map["title"], "url" => map["url"]}
     end)
     |> Enum.take(Keyword.get(opts, :limit, 10))
-    |> Enum.each(fn {title, url} ->
+    |> Enum.each(fn %{"title" => title, "url" => url}->
       IO.puts title
       IO.puts url
     end)
